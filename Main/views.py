@@ -1,3 +1,3 @@
-from Main.page.index import homepage
+from Main.page.Main import homepage
 
-def index(request): return homepage(request)
+def page_homepage(request): return homepage(request)

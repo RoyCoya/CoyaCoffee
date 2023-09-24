@@ -1,3 +1,3 @@
-from django.shortcuts import render
+from FapMaster.page.homepage import homepage
 
-# Create your views here.
+def page_homepage(request): return homepage(request)

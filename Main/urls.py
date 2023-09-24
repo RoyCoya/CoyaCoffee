@@ -6,7 +6,7 @@ app_name = 'Main'
 
 # 页面
 pages = [
-	path('', views.index, name='index'),
+	path('', views.page_homepage, name='homepage'),
 ]
 
 # 接口

@@ -1,0 +1,36 @@
+{% extends 'Main/base.html' %}
+
+{% block title_Main %}主页{% endblock title_Main %}
+
+{% block content_Main %}
+<div>
+    <h1>拾心咖啡屋</h1>
+    <ul class="list-group">
+        <a href="{% url "FapMaster:homepage" %}">
+            <li class="list-group-item d-flex justify-content-between align-items-center">
+                撸大湿
+                {% comment %} <span class="badge bg-secondary badge-pill">pill2</span> {% endcomment %}
+            </li>
+        </a>
+        <li class="list-group-item d-flex justify-content-between align-items-center disabled">
+            博客
+            {% comment %} <span class="badge bg-secondary badge-pill">pill3</span> {% endcomment %}
+        </li>
+        <li class="list-group-item d-flex justify-content-between align-items-center disabled">
+            实体中心
+            {% comment %} <span class="badge bg-secondary badge-pill">pill3</span> {% endcomment %}
+        </li>
+        <li class="list-group-item d-flex justify-content-between align-items-center disabled">
+            生命书
+            {% comment %} <span class="badge bg-secondary badge-pill">pill3</span> {% endcomment %}
+        </li>
+        <li class="list-group-item d-flex justify-content-between align-items-center disabled">
+            爱发电插件
+            {% comment %} <span class="badge bg-secondary badge-pill">pill3</span> {% endcomment %}
+        </li>
+    </ul>
+</div>
+
+<!-- 备案号 -->
+{% include "Main/homepage/beian.html" %}
+{% endblock content_Main %}

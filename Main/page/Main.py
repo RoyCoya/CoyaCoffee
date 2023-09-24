@@ -5,4 +5,4 @@ def homepage(request):
     context = {
         
     }
-    return render(request, 'Main/Main/Main.html', context)
+    return render(request, 'Main/homepage/homepage.html', context)

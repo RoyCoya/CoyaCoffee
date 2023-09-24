@@ -41,6 +41,7 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
     # 自建应用
     'Main.apps.MainConfig',
+    'FapMaster.apps.FapmasterConfig',
 ]
 
 MIDDLEWARE = [
