@@ -134,5 +134,5 @@ MEDIA_ROOT = os.path.join(BASE_DIR, 'userfile/')
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 
 # 用户账户管理
-# LOGIN_URL = '/accounts/login/'
+LOGIN_URL = '/accounts/login/'
 LOGIN_REDIRECT_URL = '/'
