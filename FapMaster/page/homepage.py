@@ -2,7 +2,6 @@ from django.shortcuts import render
 
 # 主页
 def homepage(request):
-    
     context = {
         
     }

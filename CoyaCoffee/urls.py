@@ -12,7 +12,7 @@ djangoURLs = [
     
 publicAPPs = [
     path('', include('Main.urls')),
-    path('fap_master/', include('FapMaster.urls')),
+    path('fap/', include('FapMaster.urls')),
 ]
     
 privateAPPs = [

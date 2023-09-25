@@ -23,7 +23,7 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 SECRET_KEY = 'django-insecure-oly3$bob$4_=(jbi41n4&p&j53o3_z7!+1oj=jb+fzjdoqv6p0'
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = True
+DEBUG = False
 
 ALLOWED_HOSTS = [
     '127.0.0.1','localhost','0.0.0.0', # 本地开发
@@ -87,6 +87,16 @@ DATABASES = {
     }
 }
 
+DATABASES = {
+    "default": {
+        "ENGINE": "django.db.backends.mysql",
+        "NAME": "coya_coffee",
+        "USER": "root",
+        "PASSWORD": "#",
+        "HOST": "127.0.0.1",
+        "PORT": "3306",
+    }
+}
 
 # Password validation
 # https://docs.djangoproject.com/en/4.2/ref/settings/#auth-password-validators
