@@ -12,6 +12,10 @@ https://docs.djangoproject.com/en/4.2/ref/settings/
 import os
 from pathlib import Path
 
+# Settings for development env
+DEBUG = False
+database_password = '#'
+
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
 
@@ -21,9 +25,6 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 
 # SECURITY WARNING: keep the secret key used in production secret!
 SECRET_KEY = 'django-insecure-oly3$bob$4_=(jbi41n4&p&j53o3_z7!+1oj=jb+fzjdoqv6p0'
-
-# SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = False
 
 ALLOWED_HOSTS = [
     '127.0.0.1','localhost','0.0.0.0', # 本地开发
@@ -92,7 +93,7 @@ DATABASES = {
         "ENGINE": "django.db.backends.mysql",
         "NAME": "coya_coffee",
         "USER": "root",
-        "PASSWORD": "#",
+        "PASSWORD": database_password,
         "HOST": "127.0.0.1",
         "PORT": "3306",
     }
@@ -146,3 +147,5 @@ DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 # 用户账户管理
 LOGIN_URL = '/accounts/login/'
 LOGIN_REDIRECT_URL = '/'
+LOGOUT_URL = '/accounts/logout/'
+LOGOUT_REDIRECT_URL = '/'
