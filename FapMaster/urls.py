@@ -10,8 +10,8 @@ pages = [
 ]
 
 # 接口
-# apis = [
-# 	path('api_index/', views.api_index, name=''),
-# ]
+apis = [
+	path('add_log/', views.api_add_log, name='api_add_log'),
+]
 
-urlpatterns = pages
+urlpatterns = pages + apis

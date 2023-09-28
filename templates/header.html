@@ -40,6 +40,11 @@
         <li class="nav-item">
           <a class="nav-link disabled" href="#">实体中心</a>
         </li>
+        {% if user.is_authenticated and user.is_superuser == 1 %}
+        <li class="nav-item">
+          <a class="nav-link" href="/admin/">数据库</a>
+        </li>
+        {% endif %}
       </ul>
       <div class="d-flex" role="search">
         {% if user.is_authenticated %}
