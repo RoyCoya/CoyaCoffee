@@ -17,7 +17,7 @@
     {% endblock css %}
     <!--/css导入区-->
 </head>
-<body class="{% block body_bg %}bg-light{% endblock body_bg %} pb-5">
+<body class="{% block body_bg %}bg-default{% endblock body_bg %} pb-5">
 
     <!--正文区-->
     {% block content %}
@@ -26,6 +26,7 @@
 
     <!--JS导入区-->
     <script src="{% static '/jquery/jquery.min.js' %}"></script>
+    <script src="{% static "/bootstrap/js/popper.min.js" %}"></script>
     <script src="{% static '/bootstrap/js/bootstrap.min.js' %}"></script>
     {% block js %}
     {% endblock js %}

@@ -1,1 +1,60 @@
-123
+{% extends 'FapMaster/base.html' %}
+
+{% block title_FapMaster %}
+  撸大湿
+{% endblock %}
+
+{% load static %}
+
+{% block css_FapMaster %}
+  <link rel="stylesheet" href="{% static 'FapMaster/css/homepage.css' %}" />
+{% endblock %}
+
+{% block content_FapMaster %}
+  <div class="container">
+    <div class="row">
+      <div class="col-12">
+        {% include 'header.html' %}
+      </div>
+      <div class="col-12 col-xl-6 pt-3">
+        {% include 'FapMaster/homepage/rank/rank.html' %}
+      </div>
+      <div class="col-12 col-xl-6 pt-3">
+        {% include 'FapMaster/homepage/panel/panel.html' %}
+      </div>
+    </div>
+  </div>
+{% endblock %}
+
+{% block js_FapMaster %}
+<!-- 提交表单并刷新页面的JavaScript代码 -->
+<script type="text/javascript">
+  $(document).ready(function () {
+    $('#logForm').on('submit', function (e) {
+      alert("测试提交成功（未写入数据库）")
+      /* $.ajax({
+        url: '/your-url/', // 替换为你的URL
+        type: 'post',
+        data: $('#logForm').serialize(),
+        success: function () {
+          location.reload() // 刷新页面
+        }
+      }) */
+    })
+  })
+</script>
+<script type = "text/javascript">
+    $(document).ready(function() {
+      var now = new Date();
+      var month = (now.getMonth() + 1).toString().padStart(2, '0');
+      var day = now.getDate().toString().padStart(2, '0');
+      var hour = now.getHours().toString().padStart(2, '0');
+      var minute = now.getMinutes().toString().padStart(2, '0');
+      var second = now.getSeconds().toString().padStart(2, '0');
+      var formattedDateTime = now.getFullYear() + '-' + month + '-' + day + 'T' + hour + ':' + minute;
+      
+      $('#start_time').val(formattedDateTime);
+      $('#end_time').val(formattedDateTime);
+    });
+  </script>
+{% endblock js_FapMaster %}

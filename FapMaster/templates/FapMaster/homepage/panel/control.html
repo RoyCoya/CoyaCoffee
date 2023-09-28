@@ -1,0 +1,34 @@
+<p class="text-center text-secondary">操作区（没做完）</p>
+
+<button class="btn btn-outline-dark" data-bs-toggle="modal" data-bs-target="#logModal">点我打卡</button>
+
+<div class="modal fade" id="logModal" tabindex="-1" role="dialog" aria-labelledby="logModalLabel" aria-hidden="true">
+  <div class="modal-dialog modal-dialog-centered" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="logModalLabel">日志</h5>
+        <button type="button" class="close" data-bs-dismiss="modal" aria-label="关闭"><span aria-hidden="true">×</span></button>
+      </div>
+      <div class="modal-body">
+        <form id="logForm">
+          <div class="form-group">
+            <label for="end_time"><span class="text-danger">*</span> 结束时间</label>
+            <input type="datetime-local" class="form-control" id="end_time" name="end_time" required/>
+          </div>
+          <div class="form-group">
+            <label for="duration"><span class="text-secondary">持续时间</span></label>
+            <input type="text" class="form-control" id="duration" name="duration" />
+          </div>
+          <div class="form-group">
+            <label for="comments"><span class="text-secondary">备注</span></label>
+            <input type="text" class="form-control" id="comments" name="comments" />
+          </div>
+        </form>
+      </div>
+      <div class="modal-footer">
+        <button type="submit" form ="logForm"class ="btn btn-primary">提交</button>
+        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">关闭</button>
+      </div>
+    </div>
+  </div>
+</div>
