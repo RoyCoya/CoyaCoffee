@@ -14,7 +14,7 @@ from pathlib import Path
 
 # Settings for development env
 DEBUG = False
-database_password = '#'
+database_password = 'THIS_IS_PASSWORD'
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
@@ -43,6 +43,8 @@ INSTALLED_APPS = [
     # 自建应用
     'Main.apps.MainConfig',
     'FapMaster.apps.FapmasterConfig',
+    # 插件
+    # 'sass_processor',
 ]
 
 MIDDLEWARE = [
@@ -81,18 +83,18 @@ WSGI_APPLICATION = 'CoyaCoffee.wsgi.application'
 # Database
 # https://docs.djangoproject.com/en/4.2/ref/settings/#databases
 
-DATABASES = {
-    'default': {
-        'ENGINE': 'django.db.backends.sqlite3',
-        'NAME': BASE_DIR / 'db.sqlite3',
-    }
-}
+# DATABASES = {
+#     'default': {
+#         'ENGINE': 'django.db.backends.sqlite3',
+#         'NAME': BASE_DIR / 'db.sqlite3',
+#     }
+# }
 
 DATABASES = {
     "default": {
         "ENGINE": "django.db.backends.mysql",
         "NAME": "coya_coffee",
-        "USER": "root",
+        "USER": "RoyCoya",
         "PASSWORD": database_password,
         "HOST": "127.0.0.1",
         "PORT": "3306",
