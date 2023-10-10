@@ -14,8 +14,3 @@
 .carousel-control-prev-icon:after {
   content: '<';
 }
-
-/* 表头不换行 */
-.nowrap {
-  white-space: nowrap;
-}

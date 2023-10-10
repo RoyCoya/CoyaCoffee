@@ -1,3 +1,13 @@
 <p class="text-center text-secondary">操作区（没做完）</p>
-{% include "FapMaster/homepage/panel/control/add_log.html" %}
-{% include "FapMaster/homepage/panel/control/all_log.html" %}
+<div class="btn-group" role="group">
+    <a href="#" class="btn btn-primary">计时打卡</a>
+  <div class="btn-group" role="group">
+    <button type="button" class="btn btn-primary dropdown-toggle" data-bs-toggle="dropdown"></button>
+    <ul class="dropdown-menu dropdown-menu-lg-start">
+      <li>
+        <button class="dropdown-item" data-bs-toggle="modal" data-bs-target="#modal_add_log">回忆打卡</button>
+      </li>
+    </ul>
+  </div>
+</div>
+{% include 'FapMaster/homepage/panel/control/add_log.html' %}

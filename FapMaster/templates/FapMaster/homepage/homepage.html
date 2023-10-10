@@ -1,21 +1,15 @@
 {% extends 'FapMaster/base.html' %}
 
-{% block title_FapMaster %}
-  撸大湿
-{% endblock %}
-
 {% load static %}
 
 {% block css_FapMaster %}
-  <link rel="stylesheet" href="{% static 'FapMaster/css/homepage.css' %}" />
+  <link rel="stylesheet" href="{% static 'FapMaster/css/homepage/homepage.css' %}" />
 {% endblock %}
 
 {% block content_FapMaster %}
+  {% include 'header.html' %}
   <div class="container">
     <div class="row">
-      <div class="col-12">
-        {% include 'header.html' %}
-      </div>
       <div class="col-12 col-xl-6 pt-3">
         {% include 'FapMaster/homepage/rank/rank.html' %}
       </div>
@@ -30,6 +24,6 @@
 <script>
   api_add_log = '{% url "FapMaster:api_add_log" %}'
 </script>
-<script src="{% static 'FapMaster/js/homepage.js' %}"></script>
-<script src="{% static 'FapMaster/js/log.js' %}"></script>
+<script src="{% static 'FapMaster/js/homepage/homepage.js' %}"></script>
+<script src="{% static 'FapMaster/js/log/log.js' %}"></script>
 {% endblock js_FapMaster %}

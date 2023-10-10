@@ -1,0 +1,50 @@
+{% extends 'FapMaster/base.html' %}
+
+{% block title_FapMaster %}
+  记录
+{% endblock %}
+
+{% load static %}
+
+{% block css_FapMaster %}
+  <link rel="stylesheet" href="{% static 'FapMaster/css/log/log.css' %}" />
+{% endblock %}
+
+{% block content_FapMaster %}
+{% include 'header.html' %}
+{% load datetime_trans %}
+<div class="container">
+  <div class="fs-1 text-primary">所有记录</div>
+  {% if logs %}
+  <table class="table">
+    <thead>
+      <tr>
+        <th class="nowrap">开始时间</th>
+        <th class="nowrap">结束时间</th>
+        <th class="nowrap">持续时间</th>
+        <th class="nowrap">备注</th>
+      </tr>
+    </thead>
+    <tbody>
+      {% for log in logs %}
+        <tr>
+          <td class="nowrap">{{ log.start_time|date:"d号" }} {{ log.start_time|time:"H:i:s" }}</td>
+          <td class="nowrap">{{ log.end_time|date:"d号" }} {{ log.end_time|time:"H:i:s" }}</td>
+          <td class="nowrap">{{ log.duration|duration }}</td>
+          <td>{{ log.comments }}</td>
+        </tr>
+      {% endfor %}
+    </tbody>
+  </table>
+  {% else %}
+  <p>暂无打卡</p>
+  {% endif %}
+</div>
+{% endblock %}
+
+{% block js_FapMaster %}
+{% comment %} <script>
+  api_add_log = '{% url "FapMaster:api_add_log" %}'
+</script>
+<script src="{% static 'FapMaster/js/log/log.js' %}"></script> {% endcomment %}
+{% endblock js_FapMaster %}
