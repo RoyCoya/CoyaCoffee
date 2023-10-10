@@ -1,9 +1,8 @@
-$('#modal_add_log').on('submit', function (e) {
-    e.preventDefault();
+function addLog(data) {
     $.ajax({
         url: api_add_log,
         type: 'post',
-        data: $('#form_add_log').serialize(),
+        data: data,
         success: function (data) {
             alert(data.message);
             location.reload();
@@ -13,4 +12,4 @@ $('#modal_add_log').on('submit', function (e) {
             alert(exception)
         }
     })
-})
+}

@@ -1,0 +1,42 @@
+<div class="modal fade" id="modal_add_timer_log" tabindex="-1" role="dialog">
+  <div class="modal-dialog modal-dialog-centered" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title text-primary">计时打卡</h5>
+        <button type="button" class="close" data-bs-dismiss="modal"><span>×</span></button>
+      </div>
+      <div class="modal-body">
+        <form id="form_add_timer_log">
+          {% csrf_token %}
+          <div class="form-group mb-2">
+            <label for="timer_start_time"><span class="text-secondary">开始时间</span></label>
+            <input type="datetime-local" class="form-control" id="timer_start_time" name="start_time" readonly/>
+          </div>
+          <div class="form-group mb-2">
+            <label for="timer_end_time"><span class="text-secondary">结束时间</span></label>
+            <input type="datetime-local" class="form-control" id="timer_end_time" name="end_time" required readonly/>
+          </div>
+          <div class="form-group mb-2">
+            <label><span class="text-secondary">持续时间</span></label>
+            <div class="input-group">
+              <input type="number" value="0" class="form-control" id="timer_duration_hours" name="duration_hours" step="1" readonly/>
+              <span class="input-group-text">小时</span>
+              <input type="number" value="0" class="form-control" id="timer_duration_minutes" name="duration_minutes" step="1" readonly/>
+              <span class="input-group-text">分钟</span>
+              <input type="number" value="0" class="form-control" id="timer_duration_seconds" name="duration_seconds" step="1" readonly/>
+              <span class="input-group-text">秒</span>
+            </div>
+          </div>
+          <div class="form-group mb-2">
+            <label for="timer_comments"><span class="text-secondary">备注</span></label>
+            <input type="text" class="form-control" id="timer_comments" name="comments" />
+          </div>
+        </form>
+      </div>
+      <div class="modal-footer">
+        <button type="submit" form="form_add_timer_log" class="btn btn-primary">保存</button>
+        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">关闭</button>
+      </div>
+    </div>
+  </div>
+</div>

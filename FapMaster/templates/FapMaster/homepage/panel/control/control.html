@@ -1,13 +1,23 @@
-<p class="text-center text-secondary">操作区（没做完）</p>
-<div class="btn-group" role="group">
-    <a href="#" class="btn btn-primary">计时打卡</a>
-  <div class="btn-group" role="group">
-    <button type="button" class="btn btn-primary dropdown-toggle" data-bs-toggle="dropdown"></button>
+<div id="check" class="btn-group btn-group-lg">
+  <a id="timer_start" href="#" class="btn btn-primary">计时打卡</a>
+  <div class="btn-group">
+    <button class="btn btn-primary dropdown-toggle" data-bs-toggle="dropdown"></button>
     <ul class="dropdown-menu dropdown-menu-lg-start">
       <li>
-        <button class="dropdown-item" data-bs-toggle="modal" data-bs-target="#modal_add_log">回忆打卡</button>
+        <button class="dropdown-item" data-bs-toggle="modal" data-bs-target="#modal_add_review_log">回忆打卡</button>
       </li>
     </ul>
   </div>
 </div>
-{% include 'FapMaster/homepage/panel/control/add_log.html' %}
+
+<div id="timer" class="btn-group btn-group-lg d-none">
+  <button id="time" href="#" class="btn btn-danger">00 : 00 : 00</button>
+  <button id="timer_pause" class="btn btn-danger d-none"><i class="bi bi-pause"></i></button>
+  <button id="timer_resume" class="btn btn-danger"><i class="bi bi-play-fill"></i></button>
+  <button id="timer_stop" class="btn btn-danger"><i class="bi bi-stop-fill"></i></button>
+</div>
+
+<a href="{% url 'FapMaster:log' %}"><button type="button" class="btn btn-lg btn-success">所有记录</button></a>
+
+{% include 'FapMaster/homepage/panel/control/modal_add_review_log.html' %}
+{% include 'FapMaster/homepage/panel/control/modal_add_timer_log.html' %}
