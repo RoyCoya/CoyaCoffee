@@ -28,10 +28,34 @@
         <tbody>
           {% for log in logs %}
             <tr>
-              <td class="nowrap">{{ log.start_time|date:'d号' }} {{ log.start_time|time:'H:i' }}</td>
-              <td class="nowrap">{{ log.end_time|date:'d号' }} {{ log.end_time|time:'H:i' }}</td>
-              <td class="nowrap">{{ log.duration|duration }}</td>
-              <td>{{ log.comments }}</td>
+              <td class="nowrap">
+                {% if log.start_time %}
+                  {{ log.start_time|date:'d号' }} {{ log.start_time|time:'H:i' }}
+                {% else %}
+                  -
+                {% endif %}
+              </td>
+              <td class="nowrap">
+                {% if log.end_time %}
+                  {{ log.end_time|date:'d号' }} {{ log.end_time|time:'H:i' }}
+                {% else %}
+                  -
+                {% endif %}
+              </td>
+              <td class="nowrap">
+                {% if log.duration %}
+                  {{ log.duration|duration }}
+                {% else %}
+                  -
+                {% endif %}
+              </td>
+              <td>
+                {% if log.comments %}
+                  {{ log.comments }}
+                {% else %}
+                  -
+                {% endif %}
+              </td>
             </tr>
           {% endfor %}
         </tbody>
