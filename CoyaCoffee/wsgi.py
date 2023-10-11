@@ -11,6 +11,10 @@ import os
 
 from django.core.wsgi import get_wsgi_application
 
+import sys
+sys.path.append('/home/roycoya/Sites/CoyaCoffee')
+
 os.environ.setdefault('DJANGO_SETTINGS_MODULE', 'CoyaCoffee.settings')
 
 application = get_wsgi_application()
+

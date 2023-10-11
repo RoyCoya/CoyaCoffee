@@ -28,7 +28,7 @@ SECRET_KEY = 'django-insecure-oly3$bob$4_=(jbi41n4&p&j53o3_z7!+1oj=jb+fzjdoqv6p0
 
 ALLOWED_HOSTS = [
     '127.0.0.1','localhost','0.0.0.0', # 本地开发
-    'syner.top', # 服务器
+    'syner.top','8.137.58.92', # 服务器
 ]
 
 # Application definition
