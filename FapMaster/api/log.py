@@ -10,9 +10,13 @@ from FapMaster.models import FapLog
 @login_required
 def add_log(request):
     try:
-        start_time = request.POST.get("start_time")
+        start_time = datetime.datetime.strptime(
+            request.POST.get("start_time"),
+            "%Y-%m-%dT%H:%M:%S"
+        )
         end_time = datetime.datetime.strptime(
-            request.POST.get("end_time"), "%Y-%m-%dT%H:%M"
+            request.POST.get("end_time"),
+            "%Y-%m-%dT%H:%M:%S"
         )
         duration = timedelta(
             hours=int(request.POST.get("duration_hours")),
@@ -28,6 +32,6 @@ def add_log(request):
             duration=duration,
             comments=comments,
         )
-    except Exception as e: return JsonResponse({"message": e}, status=503)
+    except Exception as e: return JsonResponse({"message": str(e)}, status=503)
 
     return JsonResponse({"message": "打卡成功！"})
