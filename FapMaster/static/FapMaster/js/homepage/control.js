@@ -128,7 +128,8 @@ $("#timer_stop").click(function (e) {
 $("#timer_del").click(function (e) {
     $("#timer").addClass("d-none");
     $("#check").removeClass("d-none");
-    $("#time").text('-- : -- : --') 
+    $("#time").text('-- : -- : --')
+    clearInterval(timer);
     localStorage.removeItem("paused")
     localStorage.removeItem("fap_start_time")
     localStorage.removeItem("fap_origin_time")
@@ -147,6 +148,7 @@ $('#form_add_timer_log').on('submit', function (e) {
     $("#timer").addClass("d-none");
     $("#check").removeClass("d-none");
     addLog($('#form_add_timer_log').serialize())
+    clearInterval(timer);
     localStorage.removeItem("paused")
     localStorage.removeItem("fap_start_time")
     localStorage.removeItem("fap_origin_time")
