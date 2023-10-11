@@ -20,5 +20,12 @@
 
 <a href="{% url 'FapMaster:log' %}"><button type="button" class="btn btn-lg btn-success">所有记录</button></a>
 
+<span>
+  距离上次：
+  {% with logs|first as last_log %}
+    {{ last_log.end_time|timesince }}
+  {% endwith %}
+</span>
+
 {% include 'FapMaster/homepage/panel/control/modal_add_review_log.html' %}
 {% include 'FapMaster/homepage/panel/control/modal_add_timer_log.html' %}
