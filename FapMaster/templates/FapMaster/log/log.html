@@ -14,7 +14,10 @@
   {% include 'header.html' %}
   {% load datetime_trans %}
   <div class="container">
-    <div class="text-secondary mt-2" id="tip">默认显示最近30条</div>
+    <div class="text-secondary mt-2" id="tip">
+      <a href="{% url "FapMaster:homepage" %}"><span><<< 返回</span></a>
+      <span class="ms-3"></span>默认显示最近30条
+    </div>
     <div class="row mt-3">
       <div class="col-12 col-xl-6">
         <div class="input-group mb-3">

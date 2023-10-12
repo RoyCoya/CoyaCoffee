@@ -7,6 +7,8 @@ from FapMaster.models import FapLog
 # 主页
 @login_required
 def homepage(request):
-    logs = FapLog.objects.filter(user=request.user).order_by('-end_time')
-    context = {'logs': logs}
-    return render(request, 'FapMaster/homepage/homepage.html', context)
+    logs = FapLog.objects.filter(user=request.user).order_by("-end_time")
+    # 给记录增加时间戳
+    for log in logs: log.timestamp = int(round(log.end_time.timestamp(), 3) * 1000)
+    context = {"logs": logs}
+    return render(request, "FapMaster/homepage/homepage.html", context)

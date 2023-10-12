@@ -4,6 +4,7 @@
 
 {% block css_FapMaster %}
   <link rel="stylesheet" href="{% static 'FapMaster/css/homepage/homepage.css' %}" />
+  <link href="{% static 'github_contribution/github_contribution_graph.css' %}" media="all" rel="stylesheet" />
 {% endblock %}
 
 {% block content_FapMaster %}
@@ -21,10 +22,19 @@
 {% endblock %}
 
 {% block js_FapMaster %}
-<script>
-  api_add_log = '{% url "FapMaster:api_add_log" %}'
+  <script>
+  let api_add_log = '{% url "FapMaster:api_add_log" %}';
+  let records = [
+  {% for log in logs %}
+    {
+      timestamp: {{log.timestamp}},
+      count: 1
+    },
+  {% endfor %}];
 </script>
-<script src="{% static 'FapMaster/js/log/log.js' %}"></script>
-<script src="{% static 'FapMaster/js/homepage/control.js' %}"></script>
-<script src="{% static 'FapMaster/js/homepage/homepage.js' %}"></script>
-{% endblock js_FapMaster %}
+  <script src="{% static 'github_contribution/github_contribution.js' %}"></script>
+  <script src="{% static 'FapMaster/js/log/log.js' %}"></script>
+  <script src="{% static 'FapMaster/js/homepage/control.js' %}"></script>
+  <script src="{% static 'FapMaster/js/homepage/homepage.js' %}"></script>
+  <script src="{% static 'FapMaster/js/homepage/records.js' %}"></script>
+{% endblock %}

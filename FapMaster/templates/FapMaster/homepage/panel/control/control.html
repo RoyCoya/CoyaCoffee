@@ -1,4 +1,4 @@
-<div id="check" class="btn-group btn-group-lg">
+<div id="check" class="btn-group btn-group-lg align-middle">
   <a id="timer_start" href="#" class="btn btn-primary">计时打卡</a>
   <div class="btn-group">
     <button class="btn btn-primary dropdown-toggle" data-bs-toggle="dropdown"></button>
@@ -10,7 +10,7 @@
   </div>
 </div>
 
-<div id="timer" class="btn-group btn-group-lg d-none">
+<div id="timer" class="btn-group btn-group-lg d-none align-middle">
   <button id="time" href="#" class="btn btn-danger">-- : -- : --</button>
   <button id="timer_pause" class="btn btn-danger d-none"><i class="bi bi-pause"></i></button>
   <button id="timer_resume" class="btn btn-danger"><i class="bi bi-play-fill"></i></button>
@@ -18,9 +18,7 @@
   <button id="timer_del" class="btn btn-danger"><i class="bi bi-trash-fill"></i></button>
 </div>
 
-<a href="{% url 'FapMaster:log' %}"><button type="button" class="btn btn-lg btn-success">所有记录</button></a>
-
-<span>
+<span class="badge bg-secondary fs-4 align-middle">
   距离上次：
   {% with logs|first as last_log %}
     {{ last_log.end_time|timesince }}
