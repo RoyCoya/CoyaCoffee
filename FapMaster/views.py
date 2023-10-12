@@ -1,5 +1,6 @@
 from FapMaster.page.homepage import homepage
 from FapMaster.page.log import log
+
 from FapMaster.api.log import add_log
 
 # 页面

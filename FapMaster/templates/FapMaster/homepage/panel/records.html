@@ -1,4 +1,6 @@
-<div id="records" class="row"></div>
-<div class="row text-end">
-  <a href="{% url 'FapMaster:log' %}"><span class="text-secondary">全部记录 >>></span></a>
-</div>
+<div id="records" class="row ps-0"></div>
+{% if show_all %}
+  <div class="row text-end">
+    <a href="{% url 'FapMaster:log' %}"><span class="text-secondary">全部记录 >>></span></a>
+  </div>
+{% endif %}

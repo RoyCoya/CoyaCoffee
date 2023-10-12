@@ -2,11 +2,11 @@ from django.urls import path
 
 from . import views
 
-app_name = 'APP'
+app_name = 'Dashboard'
 
 # 页面
 pages = [
-	path('', views.index, name=''),
+	path('<str:user_name>/', views.page_homepage, name='homepage'),
 ]
 
 # 接口

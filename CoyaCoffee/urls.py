@@ -12,6 +12,7 @@ djangoURLs = [
     
 publicAPPs = [
     path('', include('Main.urls')),
+    path('dashboard/', include('Dashboard.urls')),
     path('tool/fapmaster/', include('FapMaster.urls')),
 ]
 

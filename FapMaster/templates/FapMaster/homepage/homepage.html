@@ -24,7 +24,7 @@
 {% block js_FapMaster %}
   <script>
   let api_add_log = '{% url "FapMaster:api_add_log" %}';
-  let records = [
+  let fap_records = [
   {% for log in logs %}
     {
       timestamp: {{log.timestamp}},

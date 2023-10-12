@@ -1,0 +1,18 @@
+{% load static %}
+<div class="col-5 col-xl-12 position-relative text-center py-3 pt-xl-4">
+  <img src="{% static 'Dashboard/img/default_avator.png' %}" class="img-fluid rounded-circle shadow-lg" />
+</div>
+<div class="col-7 col-xl-12 my-3 mt-xl-5 ps-3">
+  <p>
+    <strong>用户名：</strong>{{ host.username }}
+  </p>
+  <p>
+    <strong>邮箱：</strong>{{ host.email }}
+  </p>
+  <p>
+    <strong>最后登录：</strong>{{ host.last_login }}
+  </p>
+  <p>
+    <strong>个人签名：</strong>
+  </p>
+</div>

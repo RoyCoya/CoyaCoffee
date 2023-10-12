@@ -18,3 +18,8 @@ class FapLog(models.Model):
     end_time = models.DateTimeField(verbose_name='结束时间')
     duration = models.DurationField(null=True, blank=True, verbose_name='持续时间')
     comments = models.CharField(null=True, blank=True, max_length=200, verbose_name='备注')
+
+class Preference(models.Model):
+    # TODO: 补一下注释
+    user = models.OneToOneField(settings.AUTH_USER_MODEL, on_delete=models.CASCADE, verbose_name='所属用户')
+    publicize_log = models.BooleanField(default=False, verbose_name='公开FapMaster记录')
