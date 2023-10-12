@@ -1,3 +1,4 @@
+// 上传记录
 function addLog(data) {
     $.ajax({
         url: api_add_log,
