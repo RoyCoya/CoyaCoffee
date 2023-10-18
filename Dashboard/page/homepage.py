@@ -3,6 +3,8 @@ from django.contrib.auth.decorators import login_required
 from django.contrib.auth import get_user_model
 from django.http.response import HttpResponseBadRequest
 
+from Main.api.utils import get_user
+from Dashboard.models import BaseInfo
 from FapMaster.models import Preference as FapMaster_pref, FapLog
 
 
@@ -19,7 +21,7 @@ def homepage(request, user_name):
         is_host = True
 
     context = {
-        "host": host,
+        "host": get_user(host),
         "visitor": visitor,
         "is_host": is_host,
         'fap_records':getFapLog(host),
@@ -28,10 +30,8 @@ def homepage(request, user_name):
 
 # 获取FapMaster公开log
 def getFapLog(user):
-    if not FapMaster_pref.objects.filter(user=user).exists():
-        pref_fapmaster = FapMaster_pref.objects.create(user=user)
-    pref_fapmaster = FapMaster_pref.objects.get(user=user)
-    if pref_fapmaster.publicize_log:
+    user = get_user(user)
+    if user.fapmaster_pref.publicize_log:
         fap_records = FapLog.objects.filter(user=user).order_by("-end_time")
         for record in fap_records: record.timestamp = int(round(record.end_time.timestamp(), 3) * 1000)
         return fap_records

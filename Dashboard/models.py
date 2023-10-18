@@ -1,7 +1,7 @@
 from django.db import models
 from django.contrib.auth import settings
 
-from Main.api.utils import user_img_path
+from Main.api.file_path_converter import user_img_path
 
 class BaseInfo(models.Model):
     user = models.OneToOneField(settings.AUTH_USER_MODEL, on_delete=models.CASCADE, verbose_name='所属用户')
