@@ -1,9 +1,7 @@
 from datetime import datetime
-import pytz
 
 from django.shortcuts import render
 from django.db.models import Max, F
-from django.db.models.functions import Now
 from django.contrib.auth.decorators import login_required
 from django.contrib.auth import get_user_model
 
@@ -23,7 +21,7 @@ def homepage(request):
     users_shared_log = [preference.user for preference in Preference.objects.filter(publicize_log=True)]
     rank_duration = FapLog.objects.filter(user__in=users_shared_log).values('user').annotate(
         latest_end_time=Max('end_time'),
-        nofap_duration = Now() - F('latest_end_time')
+        nofap_duration = datetime.now() - F('latest_end_time')
     ).order_by('-nofap_duration')[:3]
     nofap_rank = []
     for rank in rank_duration:
