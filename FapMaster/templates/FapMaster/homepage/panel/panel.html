@@ -1,9 +1,11 @@
-<div>
-  {% include 'FapMaster/homepage/panel/control/control.html' %}
-</div>
-<div class="border mt-3">
+<div class="border rounded">
   {% include 'FapMaster/homepage/panel/records.html' with show_all=True %}
 </div>
-<div class="border mt-3">
+
+<div class="mt-3">
+  {% include 'FapMaster/homepage/panel/control/control.html' %}
+</div>
+
+<div class="border mt-3 rounded">
   {% include 'FapMaster/homepage/panel/funfacts.html' %}
 </div>

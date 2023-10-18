@@ -1,1 +1,11 @@
-<p class="text-center text-secondary">自选数据统计（还没做）</p>
+<h3 class="text-center text-primary">自选统计</h3>
+<ul class="list-group list-group-flush">
+  <li class="list-group-item">
+    距离上次：{% with logs|first as last_log %}
+      {{ last_log.end_time|timesince }}
+    {% endwith %}
+  </li>
+  <li class="list-group-item">
+    <a href="#">+ 新增</a>
+  </li>
+</ul>

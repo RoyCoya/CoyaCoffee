@@ -18,12 +18,5 @@
   <button id="timer_del" class="btn btn-danger"><i class="bi bi-trash-fill"></i></button>
 </div>
 
-<span class="badge bg-secondary fs-4 align-middle">
-  距离上次：
-  {% with logs|first as last_log %}
-    {{ last_log.end_time|timesince }}
-  {% endwith %}
-</span>
-
 {% include 'FapMaster/homepage/panel/control/modal_add_review_log.html' %}
 {% include 'FapMaster/homepage/panel/control/modal_add_timer_log.html' %}
