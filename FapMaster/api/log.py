@@ -10,21 +10,16 @@ from FapMaster.models import FapLog
 @login_required
 def add_log(request):
     try:
-        start_time = datetime.datetime.strptime(
-            request.POST.get("start_time"),
-            "%Y-%m-%dT%H:%M:%S"
-        )
-        end_time = datetime.datetime.strptime(
-            request.POST.get("end_time"),
-            "%Y-%m-%dT%H:%M:%S"
-        )
+        start_time = request.POST.get("start_time")
+        end_time = datetime_converter(request.POST.get("end_time"))
         duration = timedelta(
             hours=int(request.POST.get("duration_hours")),
             minutes=int(request.POST.get("duration_minutes")),
             seconds=int(request.POST.get("duration_seconds")),
         )
         comments = request.POST.get("comments")
-        if not start_time: start_time = end_time - duration
+        if start_time: start_time = datetime_converter(request.POST.get("start_time"))
+        else: start_time = end_time - duration
         FapLog.objects.create(
             user=request.user,
             start_time=start_time,
@@ -35,3 +30,17 @@ def add_log(request):
     except Exception as e: return JsonResponse({"message": str(e)}, status=503)
 
     return JsonResponse({"message": "打卡成功！"})
+
+def datetime_converter(dt_str):
+    try:
+        return datetime.datetime.strptime(
+            dt_str,
+            "%Y-%m-%dT%H:%M"
+        )
+    except ValueError:
+        try:
+            return datetime.datetime.strptime(
+                dt_str,
+                "%Y-%m-%dT%H:%M:%S"
+            )
+        except: return None
