@@ -13,7 +13,7 @@ function setDateTime() {
 // 回忆打卡上传
 $('#form_add_review_log').on('submit', function (e) {
     e.preventDefault();
-    addLog($('#form_add_review_log').serialize())
+    addLog($('#form_add_review_log').serialize());
 });
 
 // 时间字符串获取

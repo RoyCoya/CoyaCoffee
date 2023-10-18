@@ -12,7 +12,8 @@ pages = [
 
 # 接口
 apis = [
-	path('api/add_log/', views.api_add_log, name='api_add_log'),
+	path('api/log/add/', views.api_add_log, name='api_add_log'),
+    path('api/preference/update/', views.api_preference_update, name='api_preference_update')
 ]
 
 urlpatterns = pages + apis

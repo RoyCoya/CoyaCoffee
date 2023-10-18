@@ -9,8 +9,8 @@ function addLog(data) {
             location.reload();
         },
         error: function (xhr, status, error) {
-            var exception = "【" + xhr.status + "】" + xhr.responseJSON.message
-            alert(exception)
+            var exception = "【" + xhr.status + "】" + xhr.responseJSON.message;
+            alert(exception);
         }
     })
 }

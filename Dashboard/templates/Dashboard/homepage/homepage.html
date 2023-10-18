@@ -12,10 +12,12 @@
   <div class="container">
     <div class="row">
       <div class="col-12 col-xl-3 mt-3 bg-white rounded shadow">
-        <div class="row">{% include 'Dashboard/homepage/base_info.html' %}</div>
+        <div class="row">
+          {% include 'Dashboard/homepage/base_info.html' %}
+        </div>
       </div>
       <div class="col-12 col-xl-9 mt-3 bg-white border-start border-end border-bottom rounded shadow">
-        <ul class="nav nav-tabs sticky-top mt-3 bg-light" id="nav_tabs">
+        <ul class="nav nav-tabs sticky-top mt-3 bg-light" id="nav_tabs" style="z-index: 999;">
           <li class="nav-item">
             <button class="nav-link text-dark active" id="nav_profile" data-bs-toggle="tab" data-bs-target="#tab_profile" type="button">主页</button>
           </li>
@@ -34,7 +36,7 @@
           </div>
           {% if is_host %}
             <div class="tab-pane pt-3" id="tab_settings">
-              {% include 'Dashboard/homepage/settings.html' %}
+              {% include 'Dashboard/settings/settings.html' %}
             </div>
           {% endif %}
           <div class="tab-pane pt-3" id="tab_else">开发中...</div>
@@ -58,4 +60,8 @@
     <script src="{% static 'github_contribution/github_contribution.js' %}"></script>
     <script src="{% static 'FapMaster/js/homepage/records.js' %}"></script>
   {% endif %}
+  <script>
+    let api_FapMaster_preference_update = '{% url "FapMaster:api_preference_update" %}'
+  </script>
+  <script src="{% static 'Dashboard/js/settings/settings.js' %}"></script>
 {% endblock %}
