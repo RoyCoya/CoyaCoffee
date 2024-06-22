@@ -1,0 +1,31 @@
+{% load static %}
+<div class="col-5 col-xl-12 position-relative text-center py-3 pt-xl-4 px-xl-5">
+  <img class="img-fluid rounded-circle shadow-lg" 
+  src="{% if host.base_info.avator %}{{ MEDIA_URL }}{{ host.base_info.avator }}{% else %}{% static 'Dashboard/img/default_avator.png' %}{% endif %}" />
+</div>
+<div class="col-7 col-xl-12 my-3 mt-xl-5 ps-3 fs-xl-5">
+  <div class="mb-2">
+    <strong>用户名：</strong>
+    <br class="d-inline d-sm-none">
+    {{ host.username }}
+  </div>
+  <div class="mb-2">
+    <strong>邮箱：</strong>
+    <br class="d-inline d-sm-none">
+    {{ host.email }}
+  </div>
+  <div class="d-none d-sm-inline">
+    <strong>个人签名：</strong>
+    <div class="input-group mb-3">
+      <input type="text" class="form-control" placeholder="不超过200字" value="{{ user.base_info.biography }}">
+      <button class="btn btn-outline-primary disabled" type="button">修改</button>
+    </div>
+  </div>
+</div>
+<div class="col-12 d-inline d-sm-none">
+  <strong>个人签名：</strong><br>
+  <div class="input-group mb-3">
+    <input type="text" class="form-control" placeholder="不超过200字" value="{{ user.base_info.biography }}">
+    <button class="btn btn-outline-primary disabled" type="button">修改</button>
+  </div>
+</div>

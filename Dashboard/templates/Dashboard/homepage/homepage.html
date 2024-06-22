@@ -1,0 +1,67 @@
+{% extends 'Dashboard/base.html' %}
+
+{% load static %}
+
+{% block css_Dashboard %}
+  <link rel="stylesheet" href="{% static 'FapMaster/css/homepage/homepage.css' %}" />
+  <link href="{% static 'github_contribution/github_contribution_graph.css' %}" media="all" rel="stylesheet" />
+{% endblock %}
+
+{% block content_Dashboard %}
+  {% include 'header.html' %}
+  <div class="container">
+    <div class="row">
+      <div class="col-12 col-xl-3 mt-3 bg-white rounded shadow">
+        <div class="row">
+          {% include 'Dashboard/homepage/base_info.html' %}
+        </div>
+      </div>
+      <div class="col-12 col-xl-9 mt-3 bg-white border-start border-end border-bottom rounded shadow">
+        <ul class="nav nav-tabs sticky-top mt-3 bg-light" id="nav_tabs" style="z-index: 999;">
+          <li class="nav-item">
+            <button class="nav-link text-dark active" id="nav_profile" data-bs-toggle="tab" data-bs-target="#tab_profile" type="button">主页</button>
+          </li>
+          {% if is_host %}
+            <li class="nav-item">
+              <button class="nav-link text-dark" id="nav_settings" data-bs-toggle="tab" data-bs-target="#tab_settings" type="button">设置</button>
+            </li>
+          {% endif %}
+          <li class="nav-item">
+            <button class="nav-link text-dark" id="nav-else" data-bs-toggle="tab" data-bs-target="#tab_else" type="button">开发中...</button>
+          </li>
+        </ul>
+        <div class="tab-content">
+          <div class="tab-pane pt-3 show active" id="tab_profile">
+            {% include 'Dashboard/homepage/profile.html' %}
+          </div>
+          {% if is_host %}
+            <div class="tab-pane pt-3" id="tab_settings">
+              {% include 'Dashboard/settings/settings.html' %}
+            </div>
+          {% endif %}
+          <div class="tab-pane pt-3" id="tab_else">开发中...</div>
+        </div>
+      </div>
+    </div>
+  </div>
+{% endblock %}
+
+{% block js_Dashboard %}
+  {% if fap_records %}
+    <script>
+        let fap_records = [
+        {% for record in fap_records %}
+        {
+            timestamp: {{record.timestamp}},
+            count: 1
+        },
+        {% endfor %}];
+    </script>
+    <script src="{% static 'github_contribution/github_contribution.js' %}"></script>
+    <script src="{% static 'FapMaster/js/homepage/records.js' %}"></script>
+  {% endif %}
+  <script>
+    let api_FapMaster_preference_update = '{% url "FapMaster:api_preference_update" %}'
+  </script>
+  <script src="{% static 'Dashboard/js/settings/settings.js' %}"></script>
+{% endblock %}

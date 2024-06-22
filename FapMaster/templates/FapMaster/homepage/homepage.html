@@ -1,0 +1,40 @@
+{% extends 'FapMaster/base.html' %}
+
+{% load static %}
+
+{% block css_FapMaster %}
+  <link rel="stylesheet" href="{% static 'FapMaster/css/homepage/homepage.css' %}" />
+  <link href="{% static 'github_contribution/github_contribution_graph.css' %}" media="all" rel="stylesheet" />
+{% endblock %}
+
+{% block content_FapMaster %}
+  {% include 'header.html' %}
+  <div class="container">
+    <div class="row">
+      <div class="col-12 col-xl-5 pt-3">
+        {% include 'FapMaster/homepage/rank/rank.html' %}
+      </div>
+      <div class="col-12 col-xl-7 pt-3">
+        {% include 'FapMaster/homepage/panel/panel.html' %}
+      </div>
+    </div>
+  </div>
+{% endblock %}
+
+{% block js_FapMaster %}
+  <script>
+  let api_add_log = '{% url "FapMaster:api_add_log" %}';
+  let fap_records = [
+  {% for log in logs %}
+    {
+      timestamp: {{log.timestamp}},
+      count: 1
+    },
+  {% endfor %}];
+</script>
+  <script src="{% static 'github_contribution/github_contribution.js' %}"></script>
+  <script src="{% static 'FapMaster/js/log/log.js' %}"></script>
+  <script src="{% static 'FapMaster/js/homepage/control.js' %}"></script>
+  <script src="{% static 'FapMaster/js/homepage/homepage.js' %}"></script>
+  <script src="{% static 'FapMaster/js/homepage/records.js' %}"></script>
+{% endblock %}
