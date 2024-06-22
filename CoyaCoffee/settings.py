@@ -14,7 +14,6 @@ from pathlib import Path
 
 # Settings for development env
 DEBUG = True
-database_password = '520Syner^Coya'
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
@@ -99,8 +98,8 @@ DATABASES = {
     "default": {
         "ENGINE": "django.db.backends.mysql",
         "NAME": "coya_coffee",
-        "USER": "RoyCoya",
-        "PASSWORD": database_password,
+        "USER": os.environ.get('MYSQL_USER'),
+        "PASSWORD": os.environ.get('MYSQL_PSW'),
         "HOST": "127.0.0.1",
         "PORT": "3306",
     }
