@@ -1,0 +1,13 @@
+<ul class="nav nav-tabs sticky-top mt-3" id="nav_tabs" style="z-index: 999;">
+  <li class="nav-item">
+    <button class="nav-link text-light active" id="nav_homepage" data-bs-toggle="tab" data-bs-target="#tab_homepage" type="button">主页</button>
+  </li>
+  {% if is_host %}
+    <li class="nav-item">
+      <button class="nav-link text-light" id="nav_settings" data-bs-toggle="tab" data-bs-target="#tab_settings" type="button">设置</button>
+    </li>
+  {% endif %}
+  <li class="nav-item">
+    <button class="nav-link text-light" id="nav_else" data-bs-toggle="tab" data-bs-target="#tab_else" type="button">开发中...</button>
+  </li>
+</ul>

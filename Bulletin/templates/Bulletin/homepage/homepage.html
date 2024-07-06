@@ -1,0 +1,51 @@
+{% extends 'Bulletin/base.html' %}
+
+{% load static %}
+
+{% block css_Bulletin %}
+{% endblock %}
+
+{% block content_Bulletin %}
+  {% include 'header.html' %}
+  <div class="container px-5">
+    <div class="row">
+      <ul class="nav nav-tabs sticky-top mt-3 bg-light" id="nav_tabs" style="z-index: 999;">
+        <li class="nav-item">
+          <button class="nav-link text-dark active" id="nav_Main" data-bs-toggle="tab" data-bs-target="#tab_Main" type="button">主站</button>
+        </li>
+        <li class="nav-item">
+          <button class="nav-link text-dark" id="nav_Bulletin" data-bs-toggle="tab" data-bs-target="#tab_Bulletin" type="button">公告板</button>
+        </li>
+        <li class="nav-item">
+          <button class="nav-link text-dark" id="nav_QQGroup" data-bs-toggle="tab" data-bs-target="#tab_QQGroup" type="button">喵喵屋</button>
+        </li>
+        <li class="nav-item">
+          <button class="nav-link text-dark" id="nav_FapMaster" data-bs-toggle="tab" data-bs-target="#tab_FapMaster" type="button">撸大湿</button>
+        </li>
+        <li class="nav-item">
+          <button class="nav-link text-dark" id="nav_Dashboard" data-bs-toggle="tab" data-bs-target="#tab_Dashboard" type="button">个人中心</button>
+        </li>
+      </ul>
+      <div class="tab-content">
+        <div class="tab-pane pt-3 show active" id="tab_Main">
+          {% include "Bulletin/homepage/Main.html" %}
+        </div>
+        <div class="tab-pane pt-3" id="tab_Bulletin">
+          {% include "Bulletin/homepage/Bulletin.html" %}
+        </div>
+        <div class="tab-pane pt-3" id="tab_QQGroup">
+          {% include "Bulletin/homepage/QQGroup.html" %}
+        </div>
+        <div class="tab-pane pt-3" id="tab_FapMaster">
+          {% include "Bulletin/homepage/FapMaster.html" %}
+        </div>
+        <div class="tab-pane pt-3" id="tab_Dashboard">
+          {% include "Bulletin/homepage/Dashboard.html" %}
+        </div>
+      </div>
+    </div>
+  </div>
+{% endblock %}
+
+{% block js_Bulletin %}
+{% endblock %}

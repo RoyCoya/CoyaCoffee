@@ -1,0 +1,6 @@
+{% if fap_records %}
+    <h2>手工记录</h2>
+    <div class="col-12 mt-1 mt-xl-3">
+        {% include "FapMaster/records.html" with show_all=False %}
+    </div>
+{% endif %}

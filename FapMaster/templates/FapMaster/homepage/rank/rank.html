@@ -1,0 +1,41 @@
+{% comment %} <div class="d-xl-none"> {% endcomment %}
+  <div class="carousel slide">
+    <div class="row align-items-center">
+      <div class="col-1 text-center">
+        <button class="carousel-control-prev" type="button" data-bs-target="#carouselId" data-bs-slide="prev">
+          <span class="carousel-control-prev-icon"></span>
+          <span class="visually-hidden">Previous</span>
+        </button>
+      </div>
+      <div class="col-10 px-3">
+        <div id="carouselId" class="carousel slide" data-bs-ride="carousel">
+          <div class="carousel-inner" role="listbox">
+            <div class="carousel-item active">
+              {% include "FapMaster/homepage/rank/nofap_duration.html" %}
+            </div>
+            <div class="carousel-item">
+              {% include "FapMaster/homepage/rank/consecutive_days.html" %}
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="col-1 text-center">
+        <button class="carousel-control-next" type="button" data-bs-target="#carouselId" data-bs-slide="next">
+          <span class="carousel-control-next-icon"></span>
+          <span class="visually-hidden">Next</span>
+        </button>
+      </div>
+    </div>
+  </div>
+{% comment %} </div> {% endcomment %}
+
+{% comment %} <div class="d-none d-xl-block">
+  <div class="row">
+    <div class="col-12">
+      {% include "FapMaster/homepage/rank/nofap_duration.html" %}
+    </div>
+    <div class="col-12">
+      {% include "FapMaster/homepage/rank/consecutive_days.html" %}
+    </div>
+  </div>
+</div> {% endcomment %}

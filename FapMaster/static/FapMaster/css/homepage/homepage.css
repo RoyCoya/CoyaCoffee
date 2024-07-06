@@ -1,0 +1,25 @@
+/* carousel 切换按钮颜色设置为黑色 */
+.carousel-control-prev-icon,
+.carousel-control-next-icon {
+  background-image: none !important;
+}
+
+.carousel-control-prev-icon:after,
+.carousel-control-next-icon:after {
+  content: '>';
+  font-size: 25px;
+  color: black;
+}
+
+.carousel-control-prev-icon:after {
+  content: '<';
+}
+
+/* heatmap */
+.wday{
+  color:white!important;
+}
+
+.month{
+  color: white!important;
+}

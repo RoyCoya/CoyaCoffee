@@ -1,0 +1,47 @@
+{% load static %}
+<div class="row">
+  <div class="row">
+    <h2>交流</h2>
+    <div class="col-3">
+      <a href="{% url 'QQGroup:homepage' %}">
+        <img src="{% static 'QQGroup/img/QQgroup.png' %}" class="card-img-top img-fluid border border-2 rounded-5" alt="喵喵屋" />
+        <div class="text-center mt-2 text-light">
+          <small>喵喵屋</small><br><small>粉丝群</small>
+        </div>
+      </a>
+    </div>
+    <div class="col-3">
+      <a href="{% url 'FAQ:homepage' %}" class="disabled">
+        <img src="{% static 'FAQ/img/icon.jpeg' %}" class="card-img-top img-fluid border border-2 rounded-5" alt="匿名问答" />
+        <div class="text-center mt-2 text-light">
+          <small>匿名问答</small>
+        </div>
+      </a>
+    </div>
+  </div>
+  <hr>
+  <div class="row">
+    <h2>工具</h2>
+    <div class="col-3">
+      <a href="{% url 'FapMaster:homepage' %}">
+        <img src="{% static 'FapMaster/img/icon.jpg' %}" class="card-img-top img-fluid border border-2 rounded-5" alt="撸大湿" />
+        <div class="text-center mt-2 text-light">
+          <small>撸大湿</small>
+        </div>
+      </a>
+    </div>
+  </div>
+  <hr>
+  <div class="row">
+    <h2>其他</h2>
+    <div class="col-3">
+      <a href="{% url 'Bulletin:homepage' %}">
+        <img src="{% static 'Bulletin/img/icon.png' %}" class="card-img-top img-fluid border border-2 rounded-5" alt="站点公告" />
+        <div class="text-center mt-2 text-light">
+          <small>站点公告</small>
+        </div>
+      </a>
+    </div>
+  </div>
+  <hr>
+</div>

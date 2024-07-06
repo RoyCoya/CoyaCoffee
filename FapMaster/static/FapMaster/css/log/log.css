@@ -1,0 +1,4 @@
+/* 表头不换行 */
+.nowrap {
+  white-space: nowrap;
+}

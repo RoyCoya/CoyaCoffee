@@ -1,0 +1,9 @@
+<div class="tab-pane pt-3 show active" id="tab_homepage">
+  {% include 'Dashboard/tabpage/homepage.html' %}
+</div>
+{% if is_host %}
+  <div class="tab-pane pt-3" id="tab_settings">
+    {% include 'Dashboard/tabpage/settings/settings.html' %}
+  </div>
+{% endif %}
+<div class="tab-pane pt-3" id="tab_else">开发中...</div>

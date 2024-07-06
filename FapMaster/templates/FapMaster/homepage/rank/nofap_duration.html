@@ -1,0 +1,33 @@
+{% load static %}
+{% load datetime_trans %}
+
+<h4 class="text-center">最久戒色</h4>
+<div>
+  {% for user in nofap_rank %}
+    <a class="row d-flex align-items-center justify-content-start mb-2 text-light px-xl-3" href="{% url 'Dashboard:homepage' user.username %}">
+      <div class="d-none d-xl-block col-2 text-end">
+        <i class="bi bi-trophy-fill fs-1"
+            style="color: 
+            {% if forloop.counter == 1 %}
+            gold
+            {% elif forloop.counter == 2 %}
+            silver
+            {% elif forloop.counter == 3 %}
+            darkgoldenrod
+            {% endif %};"></i>
+      </div>
+      <div class="col-2" style="color: darkgoldenrod;">
+        <img class="img-fluid rounded-circle"
+          src="{% if user.base_info.avator %}
+            {{ MEDIA_URL }}{{ user.base_info.avator }}
+          {% else %}
+            {% static 'Dashboard/img/default_avator.png' %}
+          {% endif %}" />
+      </div>
+      <div class="col-10 col-xl-8">
+        <strong class="d-none d-sm-inline">{{ user.username }}</strong>
+        <span class="ms-2">{{ user.duration|duration }}</span>
+      </div>
+    </a>
+  {% endfor %}
+</div>

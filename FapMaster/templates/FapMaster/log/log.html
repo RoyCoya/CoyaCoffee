@@ -1,0 +1,114 @@
+{% extends 'FapMaster/base.html' %}
+
+{% block title_FapMaster %}
+  记录
+{% endblock %}
+
+{% load static %}
+
+{% block css_FapMaster %}
+  <link rel="stylesheet" href="{% static 'FapMaster/css/log/log.css' %}" />
+{% endblock %}
+
+{% block content_FapMaster %}
+  {% include 'header.html' %}
+  {% load datetime_trans %}
+  <div class="container">
+    <div class="text-light pt-3" id="tip">
+      <a href="{% url "FapMaster:homepage" %}"><span><<< 返回</span></a>
+      <span class="ms-3"></span>默认显示最近30条
+    </div>
+    <div class="row mt-3">
+      <div class="col-12 col-xl-6">
+        <div class="input-group mb-3">
+          <select class="form-select" id="select_year">
+            <option value="-1" selected>---</option>
+            <option value="0">所有</option>
+            {% for year in years %}
+              <option value="{{ year }}">{{ year }}</option>
+            {% endfor %}
+          </select>
+          <label class="input-group-text" for="select_year">年</label>
+          <select class="form-select d-none" id="select_month">
+            <option value="0">所有</option>
+            {% for month in monthes %}
+              <option value="{{ month }}">{{ month }}</option>
+            {% endfor %}
+          </select>
+          <label class="input-group-text d-none" id="label_select_month" for="select_month">月</label>
+          <button class="btn btn-outline-secondary" type="button" id="reset">重置</button>
+        </div>
+      </div>
+    </div>
+    {% if logs %}
+      <table class="table">
+        <thead>
+          <tr>
+            <th class="nowrap"></th>
+            <th class="nowrap d-none d-xl-block">开始时间</th>
+            <th class="nowrap">结束时间</th>
+            <th class="nowrap">持续时间</th>
+            <th class="nowrap">备注</th>
+          </tr>
+        </thead>
+        <tbody>
+          {% for log in logs %}
+            <tr>
+              <td class="nowrap">{{ forloop.counter }}</td>
+              <td class="nowrap d-none d-xl-block">
+                {% if log.start_time %}
+                  {% if month %}
+                    {{ log.start_time|date:'d号' }} {{ log.start_time|time:'H:i' }}
+                  {% else %}
+                    {{ log.start_time|date:'m月d号' }} {{ log.start_time|time:'H:i' }}
+                  {% endif %}
+                {% else %}
+                  -
+                {% endif %}
+              </td>
+              <td class="nowrap">
+                {% if log.end_time %}
+                  {% if month %}
+                    {{ log.end_time|date:'d号' }} {{ log.end_time|time:'H:i' }}
+                  {% else %}
+                    {{ log.end_time|date:'m月d号' }} {{ log.end_time|time:'H:i' }}
+                  {% endif %}
+                {% else %}
+                  -
+                {% endif %}
+              </td>
+              <td class="nowrap">
+                {% if log.duration %}
+                  {{ log.duration|duration }}
+                {% else %}
+                  -
+                {% endif %}
+              </td>
+              <td>
+                {% if log.comments %}
+                  {{ log.comments }}
+                {% else %}
+                  -
+                {% endif %}
+              </td>
+            </tr>
+          {% endfor %}
+        </tbody>
+      </table>
+    {% else %}
+      <p>暂无打卡</p>
+    {% endif %}
+  </div>
+{% endblock %}
+
+{% block js_FapMaster %}
+  <script>
+  let url_log = "{% url "FapMaster:log" %}?";
+  let year = null;
+  let month = null;
+  {% if all %} year = 0{% endif %}
+  {% if year %}year = {{ year }}{% endif %}
+  {% if month %}month = {{ month}}{% endif %}
+</script>
+  <script src="{% static 'FapMaster/js/log/log_filter.js' %}"></script>
+{% endblock %}

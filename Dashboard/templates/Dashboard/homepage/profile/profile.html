@@ -1,0 +1,47 @@
+{% load static %}
+<div class="col-6 col-xl-12 position-relative text-center py-3 pt-xl-4 px-xl-5">
+  <img class="img-fluid rounded-circle shadow-lg"
+    src="{% if host.base_info.avator %}
+      {{ MEDIA_URL }}{{ host.base_info.avator }}
+    {% else %}
+      {% static 'Dashboard/img/default_avator.png' %}
+    {% endif %}" />
+</div>
+<div class="col-6 col-xl-12 my-3 mt-xl-3 ps-3 fs-xl-5">
+  <div class="mb-2">
+    <strong>昵称：</strong>
+    <br class="d-inline d-sm-none" />
+    {{host.first_name}}
+  </div>
+  <div class="mb-2">
+    <strong>用户名：</strong>
+    <br class="d-inline d-sm-none" />
+    {{ host.username }}
+  </div>
+  <div class="mb-2">
+    <strong>性别：</strong>
+    <br class="d-inline d-sm-none" />
+    {{ host.base_info.get_sex_display }}
+  </div>
+</div>
+<div class="col-12 ps-3 d-inline">
+  <strong>邮箱：</strong>
+  <br class="d-inline d-sm-none" />
+  <a href="mailto:{{ host.email }}">{{ host.email }}</a>
+</div>
+<div class="col-12 ps-3 mt-1 d-inline">
+  <strong>个人签名：</strong>
+  <br class="d-inline d-sm-none" />
+  {% if host.base_info.biography %}
+    {{ host.base_info.biography }}
+  {% else %}
+    无
+  {% endif %}
+</div>
+
+{% if is_host %}
+  <div class="text-end my-2">
+    <a href="#" data-bs-toggle="modal" data-bs-target="#modal_edit_profile" class="btn btn-primary">编辑</a>
+  </div>
+  {% include "Dashboard/homepage/profile/modal_edit_profile.html" %}
+{% endif %}

@@ -1,0 +1,40 @@
+<div>
+  {% if my_logs %}
+  <div class="btn-group mb-2">
+    <div class="input-group-text btn-group-lg align-middle">  距离上次：{% with last_log=my_logs|first %}
+    {{ last_log.end_time|timesince }}
+    </div>
+    {% endwith %}
+  </div>
+  {% endif %}
+</div>
+
+<div>
+  <div id="check" class="btn-group btn-group-lg align-middle">
+    <a id="timer_start" href="#" class="btn btn-success">计时打卡</a>
+    <button class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#modal_add_review_log">回忆打卡</button>
+    {% comment %} <div class="btn-group">
+      <button class="btn btn-success dropdown-toggle" data-bs-toggle="dropdown"></button>
+      <ul class="dropdown-menu dropdown-menu-lg-start">
+        <li>
+          
+        </li>
+      </ul>
+    </div> {% endcomment %}
+  </div>
+</div>
+
+<div id="timer" class="btn-group btn-group-lg d-none align-middle">
+  <button id="time" href="#" class="btn btn-danger">-- : -- : --</button>
+  <button id="timer_pause" class="btn btn-danger d-none"><i class="bi bi-pause"></i></button>
+  <button id="timer_resume" class="btn btn-danger"><i class="bi bi-play-fill"></i></button>
+  <button id="timer_stop" class="btn btn-danger"><i class="bi bi-rocket-takeoff"></i></button>
+  <button id="timer_del" class="btn btn-danger"><i class="bi bi-trash-fill"></i></button>
+</div>
+
+<div>
+
+</div>
+
+{% include 'FapMaster/homepage/timeline/control/modal_add_review_log.html' %}
+{% include 'FapMaster/homepage/timeline/control/modal_add_timer_log.html' %}

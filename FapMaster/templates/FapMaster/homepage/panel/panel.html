@@ -1,0 +1,20 @@
+{% load static %}
+<div class="d-flex align-items-center justify-content-start">
+  <div>
+    <a href="{% url 'FapMaster:homepage' %}"><img src="{% static 'FapMaster/img/icon.jpg' %}" class="card-img-top img-fluid border rounded-5" style="max-width: 75px;" alt="撸大湿" /></a>
+  </div>
+  <div>
+    <div class="ms-4 fs-3 fw-bold">撸大湿</div>
+    <div class="ms-4">这是一个奇怪的记录仪</div>
+  </div>
+</div>
+
+<div class="mt-3 list-group list-group-flush fs-5">
+  <li class="list-group-item list-group-item-action active py-3">主页</li>
+  <li class="list-group-item list-group-item-action disabled py-3">关注（开发中）</li>
+  <li class="list-group-item list-group-item-action disabled py-3">更多（开发中）</li>
+  {% if user.is_authenticated %}
+    <a class="list-group-item list-group-item-action py-3" data-bs-toggle="offcanvas" href="#preference">个人设置</a>
+    {% include "FapMaster/homepage/panel/preference.html" %}
+  {% endif %}
+</div>

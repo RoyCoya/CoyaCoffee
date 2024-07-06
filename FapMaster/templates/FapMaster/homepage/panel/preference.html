@@ -1,0 +1,23 @@
+<div class="offcanvas bg-dark text-light offcanvas-end" data-bs-focus="false" tabindex="-1" id="preference">
+    <div class="offcanvas-header row border-bottom d-flex justify-content-between">
+      <h4>个人设置</h4>
+    </div>
+    <div class="offcanvas-body">
+      <div class="row p-2">
+        <form id="form_preference" class="mb-3">
+            {% csrf_token %}
+            <div>
+              <div class="form-check form-switch">
+                <input class="form-check-input" type="checkbox" role="switch" name="publicize_log" id="publicize_log" 
+                {% if preference.publicize_log %}checked{% endif %}
+                />
+                <label class="form-check-label" for="publicize_log">公开记录（个人主页、排行榜等显示）</label>
+              </div>
+            </div>
+        </form>
+        <div id="ctl_FapMaster" class="d-none">
+            <button type="submit" form="form_preference" class="btn btn-primary">保存</button>
+        </div>
+      </div>
+    </div>
+  </div>

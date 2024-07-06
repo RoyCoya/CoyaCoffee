@@ -1,0 +1,19 @@
+<div class="modal fade" id="modal_edit_profile" tabindex="-1" role="dialog">
+  <div class="modal-dialog modal-dialog-centered" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title text-primary">个人资料</h5>
+        <button type="button" class="close" data-bs-dismiss="modal"><span>×</span></button>
+      </div>
+      <div class="modal-body text-dark">
+        <form id="form_edit_profile" method="post" enctype="multipart/form-data">
+          {% csrf_token %}
+          {{form_profile}}
+      </div>
+      <div class="modal-footer">
+        <button type="submit" form="form_edit_profile" class="btn btn-primary">保存</button>
+        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">关闭</button>
+      </div>
+    </div>
+  </div>
+</div>

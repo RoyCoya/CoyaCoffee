@@ -1,0 +1,18 @@
+{% extends 'QQGroup/base.html' %}
+
+{% load static %}
+
+{% block css_QQGroup %}
+{% endblock %}
+
+{% block content_QQGroup %}
+  {% include 'header.html' %}
+  <div class="container px-5 pt-3">
+    <div class="row">
+        {{html|safe}}
+    </div>
+  </div>
+{% endblock %}
+
+{% block js_QQGroup %}
+{% endblock %}
